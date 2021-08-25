@@ -1,3 +1,51 @@
+game_position = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+def start():
+    inpt = False
+    ans = input('Welcome, Player 1! Choose your shot! X or O? ')
+
+    while inpt == False:
+        ans_trim = ans.upper().strip()
+        if ans_trim == 'X' or ans_trim == 'O':
+            return ans_trim
+            inpt == True
+        else:
+            ans = input('Oops, looks like you entered the wrong answer. ' +
+                        'Please choose between X and O. ')
+
+def move_forward(n):
+    if n == 'X':
+        player = 'Player 1'
+    else:
+        player = 'Player 2'
+    
+    #display tic-tac-toe; display_game()
+    inpt = input(f'{player} goes first! Pick a position to replace 1-9. ')
+
+    while int(inpt) not in game_position:
+        inpt = input(f'Pick a position to replace 1-9. ')
+    
+    continue_game(inpt, player)
+
+def again(answer):
+    if answer == 'Y':
+        start()
+    else:
+        return
+
+#main method
+def continue_game(n, player):
+    #display_updated_game()
+    #with initial append + next player; whats next? //////
+
+    #end
+    inpt = ''
+    while inpt not in ['Y', 'N']:
+        inpt = input('Do you want to play again? [Y/N] ').upper().strip()
+
+    again(inpt)
+
+
 #every after input, check if X has horizontal or vertical X/O.
 
 ###Validations###
@@ -9,48 +57,7 @@
 ###QUESTIONS###
 #how to input if Player 1 is X/O vice versa?
 
-
-#list
-#for loop yung |||
-
-#START
-game_position = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-again = False
-
-#while again == False:
-
-def start():
-    inpt = False
-    ans = input('Welcome, Player 1! Choose your shot! X or O? ')
-
-    while inpt == False:
-        ans_trim = ans.upper().strip()
-        if ans_trim == 'X' or ans_trim == 'O':
-            return ans
-            inpt == True
-        else:
-            ans = input('Oops, looks like you entered the wrong answer. ' +
-                        'Please choose between X and O. ')
-
-def move_forward(text):
-    if text == 'X':
-        player = 'Player 1'
-    else:
-        player = 'Player 2'
-    
-    inpt = input('f{player} goes first! Pick a position to replace 1-9. ')
-
-    while inpt not in game_position:
-        inpt = input('Pick a position to replace 1-9. ')
-
-
 move_forward(start())
-
-def again(answer):
-    if answer == 'Y':
-
-
-
 
 def init():
     i, j = 0 
@@ -74,7 +81,5 @@ def init():
         #if loop < 2:
             #print ---------
     #endforloop
-
-#init()
 
 #func for insert/ask user
